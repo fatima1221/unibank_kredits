@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Kreditlər / Unibank</title>
+{% endblock %}
+
+
+{% block body %}
+  <section>
+      <div class="container">
+          {% for loan in loans %}
+          {% if loan.id % 2 != 0 %}
+              <div class="content d-flex justify-content-between pb-5">
+                <div class="content-info">
+                  <h1 class="content-header">{{loan.title}}</h1>
+                  <p class="content-txt">{{loan.description}}</p>
+        
+                  <button class="btn">Müraciət et ></button>
+                  <a class="content-link" href="#">Daha Etrafli</a>
+                </div>
+
+                <div class="content-img">
+                  <img src="{{loan.img}}" alt="">
+                </div>
+              </div> 
+             {%else%}
+                <div class="content d-flex justify-content-between">
+                  <div class="content-img">
+                    <img src="{{loan.img}}" alt="">
+                  </div>
+                  
+                  <div class="content-info">
+                    <h1 class="content-header">{{loan.title}}</h1>
+                    <p class="content-txt">{{loan.description}}</p>
+          
+                    <button class="btn">Müraciət et ></button>
+                    <a class="content-link" href="#">Daha Etrafli</a>
+                  </div>
+                </div>
+                {% endif %}
+        {%endfor%}
+        
+
+           
+      </div>
+
+  </section>  
+
+{% endblock %}
+  
